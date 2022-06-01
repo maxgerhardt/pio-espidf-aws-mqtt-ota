@@ -2,7 +2,9 @@
 # CMakeLists in this exact order for cmake to work correctly
 cmake_minimum_required(VERSION 3.16.0)
 
-set(EXTRA_COMPONENT_DIRS $ENV{IDF_PATH}/examples/common_components/protocol_examples_common
+# must use "list(APPEND" instead of "set(", see
+# https://github.com/platformio/platform-espressif32/pull/823#issuecomment-1141978488
+list(APPEND EXTRA_COMPONENT_DIRS $ENV{IDF_PATH}/examples/common_components/protocol_examples_common
 						 "${CMAKE_CURRENT_LIST_DIR}/components/ota-for-aws-iot-embedded-sdk"
 						 "${CMAKE_CURRENT_LIST_DIR}/components/coreMQTT"
 						 "${CMAKE_CURRENT_LIST_DIR}/components/corePKCS11"
